@@ -1,14 +1,22 @@
 plugins {
     kotlin("jvm") version "1.4.20"
+
+
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
 }
 
 group = "treecode"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
 
 tasks.withType<Test> {
     useJUnitPlatform()
